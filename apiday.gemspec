@@ -6,12 +6,12 @@ require 'apiday/version'
 Gem::Specification.new do |spec|
   spec.name          = "apiday"
   spec.version       = Apiday::VERSION
-  spec.authors       = ["Masamichi Nakamura"]
-  spec.email         = ["masamichi.nakamura@gmail.com"]
+  spec.authors       = ["Group B AIIT enpit 2015"]
+  spec.email         = ["a1336mn@aiit.ac.jp"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This is a demo ruby gem on aiit enpit project.}
+  spec.description   = %q{This is a demo ruby gem on aiit enpit project.}
+  spec.homepage      = "www.aiit.ac.jp"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

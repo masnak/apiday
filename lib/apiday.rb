@@ -1,4 +1,4 @@
-# coding: utf-8
+# coding: cp932
 #require "enpit/birthday/version"
 require 'wikipedia'
 
@@ -38,6 +38,7 @@ require 'wikipedia'
         end
       end
       puts "Your birthday is #{year}/#{month}/#{day}"
+      return year, month, day
     end
     
     # wikipedia呼び出し部
@@ -57,5 +58,5 @@ require 'wikipedia'
     end
  
   # メソッド呼び出し部
-  input
+  year, month, day = input
   puts wikipedia(year, month, day)

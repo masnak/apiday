@@ -1,61 +1,23 @@
-# coding: utf-8
-#require "enpit/birthday/version"
-require 'wikipedia'
+#coding: utf-8
 
-    #　入力の初期値
-    year = 2000
-    month = 12
-    day = 31
-    
-    # 入力部
-    def input
-      print 'Please set your birthday!'
-      print 'Set year : '
-      while year = gets.chomp.to_i
-        if year < 1000 || year > 3000 then
-          puts 'Input error : Please set proper number'
-          print 'Set year : '
-        else
-          break
-        end
-      end
-      print 'Set month : '
-      while month = gets.chomp.to_i
-        if month < 1 || month > 12 then
-          puts 'Input error : Please set proper number'
-          print 'Set month : '
-        else
-          break
-        end
-      end
-      print 'Set day : '
-      while day = gets.chomp.to_i
-        if day < 1 || day > 31 then
-          puts 'Input error : Please set proper number'
-          print 'Set day : '
-        else
-          break
-        end
-      end
-      puts "Your birthday is #{year}/#{month}/#{day}"
+#require "apitest/version"
+require "open-uri"
+require "sinatra"
+require "json"
+
+
+    def recent_repos
+      url = "https://api.github.com/search/" +
+          "repositories?q=aiit&sort=updated"
+      data = JSON.parse(open(url).read)
+
+      data["items"]
+
     end
-    
-    # wikipedia呼び出し部
-    def wikipedia(year, month, day) 
-        page_year = Wikipedia.find(year)
-        return page_year.content[1,1000]
+
+         recent_repos.each do |item|
+         puts item["full_name"]
+         puts item["description"]
+         puts item["html_url"]
+
     end
-    
-    # twitter呼び出し部
-    def twitter(year, month ,day)
-    
-    end
-    
-    # テキスト出力部
-    def output
-      
-    end
- 
-  # メソッド呼び出し部
-  input
-  puts wikipedia(year, month, day)

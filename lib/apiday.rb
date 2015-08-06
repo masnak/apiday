@@ -2,12 +2,12 @@
 #require "enpit/birthday/version"
 require 'wikipedia'
 
-    #�@���͂̏����l
+    #　入力の初期値
     year = 2000
     month = 12
     day = 31
     
-    # ���͕�
+    # 入力部
     def input
       print 'Please set your birthday!'
       print 'Set year : '
@@ -38,24 +38,25 @@ require 'wikipedia'
         end
       end
       puts "Your birthday is #{year}/#{month}/#{day}"
+      return year, month, day
     end
     
-    # wikipedia�Ăяo����
+    # wikipedia呼び出し部
     def wikipedia(year, month, day) 
         page_year = Wikipedia.find(year)
         return page_year.content[1,1000]
     end
     
-    # twitter�Ăяo����
+    # twitter呼び出し部
     def twitter(year, month ,day)
     
     end
     
-    # �e�L�X�g�o�͕�
+    # テキスト出力部
     def output
       
     end
  
-  # ���\�b�h�Ăяo����
-  input
+  # メソッド呼び出し部
+  year, month, day = input
   puts wikipedia(year, month, day)

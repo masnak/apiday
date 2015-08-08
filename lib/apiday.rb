@@ -2,6 +2,9 @@
 #require "enpit/birthday/version"
 require 'wikipedia'
 
+module Apiday
+ class Main
+
     #　入力の初期値
     year = 2000
     month = 12
@@ -9,7 +12,8 @@ require 'wikipedia'
     
     # 入力部
     def input
-      print 'Please set your birthday!'
+      print 'Please set your birthday!
+'
       print 'Set year : '
       while year = gets.chomp.to_i
         if year < 1000 || year > 3000 then
@@ -42,9 +46,14 @@ require 'wikipedia'
     end
     
     # wikipedia呼び出し部
-    def wikipedia(year, month, day) 
-        page_year = Wikipedia.find(year)
+    def wikipedia_year(year) 
+        page_year = Wikipedia.find(year.to_s + "年")
         return page_year.content[1,1000]
+    end
+
+    def wikipedia_day(month, day)
+        page_day = Wikipedia.find(month.to_s + "月" + day.to_s + "日")
+       return page_day.content[1,1000]
     end
     
     # twitter呼び出し部
@@ -58,5 +67,10 @@ require 'wikipedia'
     end
  
   # メソッド呼び出し部
-  year, month, day = input
-  puts wikipedia(year, month, day)
+  #year, month, day = Main.new.input
+  puts Main.new.wikipedia_year(year)
+  puts Main.new.wikipedia_day(month, day)
+
+
+end
+end

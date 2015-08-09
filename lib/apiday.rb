@@ -48,12 +48,16 @@ module Apiday
     # wikipedia呼び出し部
     def wikipedia_year(year) 
         page_year = Wikipedia.find(year.to_s + "年")
-        return page_year.content[1,1000]
+        index = page_year.content.index("== できごと ==")
+        index2 = page_year.content.index("== 誕生 ==")
+        return "== " + year.to_s + " ==\n" + page_year.content[index, index2-index]
     end
 
     def wikipedia_day(month, day)
         page_day = Wikipedia.find(month.to_s + "月" + day.to_s + "日")
-       return page_day.content[1,1000]
+        index = page_day.content.index("== できごと ==")
+        index2 = page_day.content.index("== フィクションのできごと ==")
+       return "== " + month.to_s + "月" + day.to_s + "日 ==\n" + page_day.content[index,index2-index]
     end
     
     # twitter呼び出し部
@@ -65,11 +69,11 @@ module Apiday
     def output
       
     end
- 
-  # メソッド呼び出し部
-  #year, month, day = Main.new.input
-  puts Main.new.wikipedia_year(year)
-  puts Main.new.wikipedia_day(month, day)
+
+    # メソッド呼び出し部
+    year, month, day = Main.new.input
+    puts Main.new.wikipedia_year(year)
+    puts Main.new.wikipedia_day(month, day)
 
 
 end

@@ -60,18 +60,8 @@ module Apiday
        return "== " + month.to_s + "月" + day.to_s + "日 ==\n" + page_day.content[index,index2-index]
     end
     
-    # twitter呼び出し部
-    def twitter(year, month ,day)
-    
-    end
-    
-    # テキスト出力部
-    def output
-      
-    end
-
     # メソッド呼び出し部
-    year, month, day = Main.new.input
+    #year, month, day = Main.new.input
     puts Main.new.wikipedia_year(year)
     puts Main.new.wikipedia_day(month, day)
 

@@ -2,7 +2,25 @@
 
 This is a demo ruby gem on AIIT enpit project 2015.
 
+## Requirement
 
+This gem use 'wikipedia-client'.
+```ruby
+gem 'wikipedia-client'
+```
+
+You need to change wikipedia.rb as follows.
+```ruby
+.rbenv/versions/X.X.X/lib/ruby/gems/X.X.X/gems/wikipedia-client-X.X.X/lib/wikipedia.rb
+ Configure {
+   protocol  'https'
+   domain    'jp.wikipedia.org'  # -> 'en.wikipedia.org'
+   path      'w/api.php'
+   user_agent(
+     'wikipedia-client/1.3 (https://github.com/kenpratt/wikipedia-client)'
+   )
+ }
+ ```
 ## Installation
 
 Add this line to your application's Gemfile:

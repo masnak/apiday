@@ -61,7 +61,7 @@ module Apiday
        return "== " + month.to_s + "月" + day.to_s + "日 ==\n" + page_day.content[index,index2-index]
     end
     
-    def tokyo_wheather(year,month,day)
+    def tokyo_weather(year,month,day)
         #カレントディレクトリ取得
         path =  Dir.pwd
         
@@ -90,7 +90,7 @@ module Apiday
     #year, month, day = Main.new.input
     puts Main.new.wikipedia_year(year)
     puts Main.new.wikipedia_day(month, day)
-    puts Main.new.tokyo_wheather(year,month,day)
+    puts Main.new.tokyo_weather(year,month,day)
 
 end
 end
